@@ -42,7 +42,20 @@ complexNumbers subtractTwoComplexNumbers(complexNumbers complexNumber1, complexN
 
 }
 
+//function to multiply two numbers
+complexNumbers multiplyTwoComplexNumbers(complexNumbers complexNumber1, complexNumbers complexNumber2) {
 
+	complexNumbers result;
+
+	result.realNumber = (complexNumber1.realNumber)*(complexNumber2.realNumber);
+	result.imaginaryNumber = ((complexNumber1.imaginaryNumber*complexNumber2.imaginaryNumber)*(-1));
+
+
+
+
+	return result;
+
+}
 
 int main() {
 	//declaring two objects
@@ -51,15 +64,15 @@ int main() {
 	complexNumbers object3;
 	complexNumbers object4;
 	complexNumbers object5;
-
+	
+	// initializing Complex Numbers
 	object1.realNumber = 4;
 	object1.imaginaryNumber = 4;
-
 	
 	object2.realNumber = 3;
 	object2.imaginaryNumber = 3;
 
-
+	// adding two Complex Numbers
 	object3=addTwoComplexNumbers(object1, object2);
 	if (object3.imaginaryNumber < 0) {
 
