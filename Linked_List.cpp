@@ -49,6 +49,25 @@ void insertAsFirstElement(node *&head, node *&last , int data){
 	last=temp;
 }
 
+//Funtion to insert in the list
+void insert(node *&head, node *&last , int data){
+	
+	if(isEmpty(head)){
+		
+		insertAsFirstElement(head,last,data);
+		
+	}
+	else{
+		
+		node *temp=new node;
+		temp->data=data;
+		temp->next=NULL;
+		last->next=temp;
+		last=temp;
+		
+	}
+}
+
 
 //Function to remove from List
 void remove(node *&head, node *&last){
