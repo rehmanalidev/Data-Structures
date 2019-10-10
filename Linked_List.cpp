@@ -1,139 +1,43 @@
-//This programs contains node construct in which we defined functions to add, remove  and show list
-#include<iostream>
+// DSA Lab 2.cpp : This program is about linked list.
+//This is a node class
+
+#include <iostream>
+
 using namespace std;
 
-//Defined a struct node
-struct node{
-	
-	int data;
-	node *next;
-	};
- 
-//Function to check if List is empty
-bool isEmpty(node *head){
-	
-	if(head==NULL){
-		
-		return true;
-		
-	}
-	else {
-		
-		return false;
-	
-	}
-	
-}
+//Declaring a node class
+class node {
 
-//Menu Function
-char menu(){
-	
-	char choice;
-	cout<<"Menu"<<endl;
-	cout<<"1. Add an item \n";
-	cout<<"2. Remove an item \n";
-	cout<<"3. Show the List. \n";
-	cout<<"4. Exit \n"n;
-	
-	cin>>choice;
-	return choice;
-}
+	//Declaring private data members
+	int value;
+	node *nextNode;
+	node *previousNode;
+public:
 
-//Function to insert as first Element
-void insertAsFirstElement(node *&head, node *&last , int data){
-	
-	node *temp= new node;
-	temp->data=data;
-	temp->next=NULL;
-	head=temp;
-	last=temp;
-}
-
-//Funtion to insert in the list
-void insert(node *&head, node *&last , int data){
-	
-	if(isEmpty(head)){
-		
-		insertAsFirstElement(head,last,data);
-		
+	void setPreviousNode(node *pNode) {
+		previousNode = pNode;
 	}
-	else{
-		
-		node *temp=new node;
-		temp->data=data;
-		temp->next=NULL;
-		last->next=temp;
-		last=temp;
-		
+	node * getPreviousNode() {
+		return previousNode;
 	}
-}
 
-
-//Function to remove from List
-void remove(node *&head, node *&last){
-	
-	if(isEmpty(head)){
-		
-		cout<<"List is empty"<<endl;
-		
+	//declaring a function which sets the value in the node
+	void setValue(int v) {
+		value = v;
 	}
-	else if(head==last){
-		delete head;
-		head=NULL;
-		last=NULL;
-	}
-	else{
-		node *temp=head;
-		head=head->next;
-		delete temp;
-	}
-}
 
-//Function to print all the data in the Linked List
-void showList(node * current){
-	if(isEmpty(current)){
-		cout<<"List is empty"<<endl;
+	//Function used to move to next Node
+	void setNextNode(node *nn) {
+		nextNode = nn;
 	}
-	else{
-		 cout<<"The list contains:"<<endl; 
-		 while(current!=NULL){
-		 	cout<<current->data<<endl;
-		 	current=current->next;
-		 }
+
+	//Declared a function which returns the value stored in a node
+	int getValue() {
+		return value;
 	}
-}
 
- 
-
-
-int main(){
-	node * head=NULL;
-	node * last=NULL;
-	char choice;
-	int data;
-	
-	do{
-		choice=menu();
-		switch(choice){
-			
-			case '1':
-				cout<<"Please enter a number";
-				cin>>data;
-				insert(head, last, data);
-				break;
-				
-			case '2': 
-				remove(head, last);
-				break;
-				
-			case '3':
-				showList(head);
-				break;
-				
-			default: cout<<"System exit\n";
-		}
-	}while(choice !='4');
-	
-	
-	return 0;
-}
+	//Getting nextNode
+	node *getNextNode() {
+		return nextNode;
+	}
+};
