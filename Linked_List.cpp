@@ -478,3 +478,16 @@ int main()
 	cout << "After inserting a node at given position" << endl;
 	linkList.insertByPosition(41, 2);
 	linkList.print();
+//After inserting a node after given value  
+	cout << "After inserting a node after given value" << endl;
+	linkList.insertAfterValue(160, 150); 
+	linkList.print();
+
+	//Deleting a node from link list
+	cout << "\nList after deleting a node" << endl;
+	linkList.deleteNodeByPosition(1);
+
+	linkList.print();
+
+	system("pause");
+}
