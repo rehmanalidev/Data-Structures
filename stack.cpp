@@ -2,7 +2,7 @@
 #include<iostream>
  
 using namespace std;
- 
+ ;Declaring the class
 class Stack
 {
 int top;
@@ -12,14 +12,14 @@ public:
 {
        top=-1;
 }
- 
+ ;Calling different functions
     void push();
     void pop();
     void view();
     int isEmpty();
     int isFull();
 };
- 
+ ;Condition
 int Stack::isEmpty()
 {
     return (top==(-1)?1:0);
@@ -32,6 +32,7 @@ int Stack::isFull()
  
 void Stack::push()
 {
+ ;implementation of loop
     if(isFull())
     {
         cout<<"\nSTACK IS FULL { OVERFLOW }";
@@ -77,7 +78,7 @@ void Stack::view()
     }
 }
  
- 
+ ;main function
 int main()
 {
     Stack s;
@@ -91,7 +92,7 @@ int main()
         cout<<"4. Quit\n";
         cout<<"\nEnter your Choice :: ";
         cin>>ch;
- 
+ ;implementing the switch
         switch(ch)
         {
             case 1:
