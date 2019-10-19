@@ -70,13 +70,7 @@ public:
 		if (currentNode != NULL)
 		{
 			if (currentNode->getNextNode() == 0) {
-				node *temp = new node();
-				currentNode->setNextNode(temp);
-				temp->setPreviousNode(currentNode);
-				currentNode = temp;
-				currentNode->setValue(number);
-				currentNode->setNextNode(0);
-				size++;
+				insertAtEnd(number);
 			}
 			else {
 				node *temp = new node();
@@ -89,13 +83,7 @@ public:
 			}
 		}
 		else {
-			node *temp = new node();
-			headNode = temp;
-			currentNode = headNode;
-			temp->setPreviousNode(0);
-			currentNode->setValue(number);
-			currentNode->setNextNode(0);
-			size++;
+			insertAtBegin(number);
 		}
 	}
 
@@ -433,18 +421,37 @@ void append(Node** head_ref, int new_data)
 		}
 	}
 
-	void sorting() {
-		start();
-		if (size != 1) {
-			for (int i = 0; i < size - 1; i++) {
-				if (currentNode->getValue > (currentNode->getNextNode())->getValue()) {
-
-
-				}
-			}
-		}
+	void reverseNode()
+{
+	start();
+	cNode* next;
+	while (currentNode != 0)
+	{
+		next = currentNode->nextNode;
+		currentNode->nextNode = currentNode->getPreviousNode();
+		currentNode->getPreviousNode() = currentNode;
+		currentNode = next;
+	}
+	headNode = currentNode->getPreviousNode();
 }
-
+void sorting()
+{
+	start();
+	cNode* temp = new cNode;
+	int f;
+	for (int i = 0; i < size;++i) {
+		temp = currentNode->getNextNode();
+		for (int j = i + 1; j < size;++j) {
+			if (currentNode->getValue()>temp->getValue()) {
+				f = currentNode->getValue();
+				currentNode->setValue(temp->getValue());
+				temp->setValue(f);
+			}
+			temp = temp->nextNode;
+		}
+		moveForward();
+	}
+}
 };
 
 
