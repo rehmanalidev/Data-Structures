@@ -67,12 +67,12 @@ public:
 
 	//Function to insert a new node in the link list
 	void insert(int number) {
-		if (currentNode != NULL)
+		if (currentNode != NULL) // there is atleast one node in the list
 		{
-			if (currentNode->getNextNode() == 0) {
+			if (currentNode->getNextNode() == 0) { //if next node of current node is null, new node will be inserted at the end
 				insertAtEnd(number);
 			}
-			else {
+			else {	//inserting between two nodes
 				node *temp = new node();
 				temp->setNextNode(currentNode->getNextNode());
 				temp->setPreviousNode(currentNode);
@@ -89,8 +89,8 @@ public:
 
 	//function to insert a value at certain index
 	void insertByPosition(int value, int position) {
-		start();
-		if (position <= size) {
+		start(); //Function to set current Node at headnode
+		if (position <= size) { 
 			for (int i = 0; i < position - 2; i++) {
 				moveForward();
 			}
