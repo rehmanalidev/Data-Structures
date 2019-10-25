@@ -1,0 +1,60 @@
+Name: cList ();
+Role: It initializes count with 0. Sets data members (top=NULL)
+Precondition: Non
+Post-Condition: Object is Null
+
+Name: cList (CNode* &ptr);
+Role: It initializes List object with one node in it.
+Precondition: Node must be passed as parameter.
+Post-Condition: Initialized List with one node.
+
+Name:  cNode* insert(CNode* &ptr)
+Role: Create a new node to the top of List.
+Precondition: List may be empty or not .
+Post-Condition: Node is added in the top of List. Count is incremented by 1.
+
+Name: isEmpty()
+Role: Return true if List empty else return false.
+Precondition: Non
+Post-Condition: Return Boolean
+
+Name:  print() 
+Role: Print data of List.
+Precondition: Non
+Post-Condition: Prints the data of Liston screen.
+ 
+Name: cList (const cList&src);
+Role: Copies one object to another.
+Precondition: Calling object must be at initializing stage.
+Post-Condition: List is copied to another Que.
+
+Name: cList &operator=(cList& src)
+Role: Assignment operator assigns one List to another.
+Precondition: Calling object may or may not be empty.
+Post-Condition: All data members of one List is copied to another.
+
+Name: cList (ifstream &infile)
+Role: Create List from file
+Precondition: Input file must be of type  .txt . File must exist. File must be open.
+Post-Condition: List is initialized from file
+
+Name: void writeToFile(ofstream &ofile)
+Role: Writes List data members to file.
+Precondition: File must exist. File must be opened. File must be of type  .txt.
+Post-Condition: List members are written in .txt file.
+
+Name: readFromFile(ifstream & infile)
+Role: Copies List members from file to existing List object  
+Precondition: File must exist. File must be opened. File must be of type  .txt.
+Post-Condition: List is initialized from file
+
+Name: ~cList ();
+Role: Deleting all nodes of List.
+Precondition: List may be empty or not.
+Post-condition:  All nodes are deleted.
+
+Name: deletenodes(CNode* ptr)
+Role: Deletes all nodes in List.
+Precondition: List may be empty or not.
+Post-condition: All nodes are deleted.
+
